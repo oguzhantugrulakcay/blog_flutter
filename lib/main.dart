@@ -1,4 +1,5 @@
-import 'package:blog_flutter/pages/login.dart';
+import 'package:blog_flutter/Screens/Welcome/welcome_screen.dart';
+import 'package:blog_flutter/constraints.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,26 +7,16 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'My Blog',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.purple,
-        primaryColor: Colors.white,
-        brightness: Brightness.light,
-        dividerColor: Colors.white54,
-      ),
-      darkTheme: ThemeData(
-          primarySwatch: Colors.orange,
-          primaryColor: Colors.black,
-          brightness: Brightness.dark,
-          dividerColor: Colors.black12),
-      themeMode: ThemeMode.system,
-      home: const LoginPage(),
+          primaryColor: kPrimaryColor, scaffoldBackgroundColor: Colors.white),
+      home: WelcomeScreen(),
     );
   }
 }
