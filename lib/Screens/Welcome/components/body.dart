@@ -1,3 +1,4 @@
+import 'package:blog_flutter/Screens/Login/login_screen.dart';
 import 'package:blog_flutter/Screens/Welcome/components/background.dart';
 import 'package:blog_flutter/constraints.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class Body extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             "Welcome To My Blog",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
@@ -23,15 +24,25 @@ class Body extends StatelessWidget {
             "assets/icons/chat.svg",
             height: size.height * 0.4,
           ),
+          SizedBox(height: size.height * 0.03),
           RoundedButton(
-            text: "deneme",
-            press: nothing,
+            text: "Login",
+            press: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => const LoginScreen())));
+            },
             color: kPrimaryColor,
-          )
+          ),
+          SizedBox(height: size.height * 0.01),
+          RoundedButton(
+            text: "Register",
+            press: () {},
+            color: kPrimaryColor,
+          ),
         ],
       ),
     );
   }
 }
-
-void nothing(params) {}
